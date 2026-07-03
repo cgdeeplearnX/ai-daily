@@ -6,7 +6,7 @@ This repository generates a daily AI news report with GitHub Actions.
 
 - Schedule: every day at 08:30 Asia/Shanghai time.
 - Output: `reports/YYYY-MM-DD-ai-daily.md`.
-- Sources: trusted RSS feeds from AI labs, developer platforms, and AI news outlets.
+- Sources: trusted RSS feeds from AI labs, developer platforms, research blogs, arXiv categories, and AI news outlets.
 - Fallback: if `OPENAI_API_KEY` is not configured, the script still creates a basic report from RSS titles and summaries.
 - Optional model summary: add `OPENAI_API_KEY` to repository secrets to generate a more polished Chinese Markdown report.
 
