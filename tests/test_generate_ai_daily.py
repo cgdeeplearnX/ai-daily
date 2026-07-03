@@ -46,6 +46,19 @@ def test_filter_ai_items_keeps_ai_related_items():
     assert [item.title for item in filtered] == ["OpenAI releases a new model update"]
 
 
+def test_default_feeds_include_more_reliable_ai_sources():
+    feed_names = {name for name, _url in daily.DEFAULT_FEEDS}
+
+    assert "Google AI Blog" in feed_names
+    assert "AWS Machine Learning Blog" in feed_names
+    assert "GitHub AI & ML Blog" in feed_names
+    assert "arXiv cs.AI" in feed_names
+    assert "The Decoder" in feed_names
+    assert "Anthropic News" not in feed_names
+    assert "Google DeepMind Blog" not in feed_names
+    assert "Meta AI Blog" not in feed_names
+
+
 def test_render_markdown_includes_sources_and_fallback_note():
     item = daily.NewsItem(
         title="Anthropic announces model safety research",
